@@ -4,14 +4,13 @@ public class CountingValleys {
 	// https://www.hackerrank.com/challenges/counting-valleys/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
 	
 	public static int countingValleys(int steps, String path) {
-		int last_level_position = 0;
 		int new_level_position = 0;
 		int passed_to_a_valley = 0;
 		
 		
-		char[] path_converted = path.toCharArray();
-		for(int i = 0; i < steps;i++) {
-			if (path_converted[i] == 'U') {
+		for(char c : path.toCharArray())
+		{
+			if (c == 'U') {
 				System.out.println("U");
 				new_level_position += 1;
 			} else {
@@ -19,13 +18,13 @@ public class CountingValleys {
 				new_level_position -= 1;
 			}
 		
-			System.out.println("Nível de água: " + new_level_position);
-			if (last_level_position == 0 && new_level_position == 1) {
+			System.out.println("Nivel em relacao a agua: " + new_level_position);
+			if (c == 'U' && new_level_position == 0) {
 				passed_to_a_valley += 1;
 				System.out.println("Incrementando...");
 			}
 			
-			last_level_position = new_level_position;
+	
 			
 		}
 		
